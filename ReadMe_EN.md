@@ -5,7 +5,9 @@ Python 3.*, local script execution rights for PowerShell, Windows environment, U
 
 ## Use Method
 1. Place the **LocalBuildTools.cs** file in the **Assets** directory under any **Editor** folder in the resource directory.
+
 2. Configure the **Gradle environment variable**, configure the **gradle path** in **Android Studio** and execute **make project**, Unity exports once, and execute **gradle wrapper** in the export directory.
+
 3. Fill in the environment variables in the **env.ini** file:
 - work_space: path of the automatic build script
 - unity: path of Unity.exe
@@ -19,6 +21,7 @@ Python 3.*, local script execution rights for PowerShell, Windows environment, U
 - password: signature file password
 - alias: signature file character set
 - key_password: signature file character set password 
+
 4. Use ``` bat
 python <env.work_space>\Build.py -c <code_version> -d <package_type> -r <rename_final_package> -p <resource_distribution_type> -o <overwrite_install_prompt> -f <need_force_cache_clearing> -t <constructer_template>
 ```
