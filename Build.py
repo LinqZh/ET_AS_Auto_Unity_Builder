@@ -145,7 +145,6 @@ if __name__ == '__main__':
         if args.isRename == "true":
 
             package_name = param_pass_parser["buildOutput"]["packageName"]
-            symbol = "apk"
             final_path = "debug"
             extension = "apk"
 
@@ -154,17 +153,16 @@ if __name__ == '__main__':
 
             if args.padType == "Unity_Split_Pad":
                 package_name = param_pass_parser["buildOutput"]["aabName"]
-                symbol = "bundle"
                 extension = "aab"
 
-            prefixion = str.format("{}\\launcher\\build\\outputs\\{}\\{}", export_path, symbol, final_path)
-            package_path = str.format("{}\\launcher-{}.{}", prefixion, final_path, extension)
+            prefixion = str.format("{}/launcher/build/outputs/{}/{}", export_path, extension, final_path)
+            package_path = str.format("{}/launcher-{}.{}", prefixion, final_path, extension)
             if not path.exists(package_path):
-                print_build_log("Can not find output package.")
+                print_build_log("Can not find output package." + package_path)
                 clear_template_files()
                 exit(1)
 
-            rename(package_path, str.format("{}\\{}.{}", prefixion, package_name, extension))
+            rename(package_path, str.format("{}/{}.{}", prefixion, package_name.replace(":", "_"), extension))
     
     as_process.kill()
 
