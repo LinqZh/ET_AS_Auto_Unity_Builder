@@ -26,6 +26,8 @@ function Get-IniContent ($filePath) {
 reg add HKEY_CURRENT_USER\Console\%SystemRoot%_SysWOW64_WindowsPowerShell_v1.0_powershell.exe /v QuickEdit /t REG_DWORD /d 00000000 /f
 $group = Get-IniContent($args[0] + "\env.ini")
 Set-Location $args[1]
+# https://stackoverflow.com/questions/39725611/how-to-do-a-gradle-sync-with-terminal-command 替代android studio sync
+cmd /c "call gradlew help"
 
 # $gradlewPath = $args[0] + "\gradlew.bat"
 # if (Test-Path $gradlewPath) {
